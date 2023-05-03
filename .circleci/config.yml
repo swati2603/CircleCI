@@ -9,12 +9,13 @@ jobs:
     # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/configuration-reference/#executor-job
     docker:
-      - image: cimg/base:stable
+      - image: cimg/android:2023.05
     # Add steps to the job
     # See: https://circleci.com/docs/configuration-reference/#steps
     steps:
       - checkout
-      - run:
+      - run: ./gradlew androidDependencies
+      - run: ./gradlew lint test
           name: "Say hello"
           command: "echo Hello, World"
 
