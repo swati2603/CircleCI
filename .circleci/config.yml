@@ -16,6 +16,7 @@ jobs:
       - checkout
       - run: ./gradlew androidDependencies
       - run: ./gradlew lint test
+      - run:
           name: "Say hello"
           command: "echo Hello, World"
 
